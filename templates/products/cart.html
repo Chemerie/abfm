@@ -1,0 +1,55 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block content %}
+	<div class="container1 cart-page">
+		<table>
+			<tr>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Cost Per Each</th>
+				<th>Subtotal</th>
+			</tr>
+			{% for cart in carts%}
+			<tr>
+				<td>
+					<div class="cart-info">
+						<img src="{{cart.product.original_pics.url}}">
+						<div>
+							<p>{{cart.product.name}}</p>
+							<small>Price: N{{cart.product.final_price}}</small>
+							<br>
+							<a href="">Remove</a>
+						</div>
+					</div>
+				</td>
+				<td><input class="quantity" type="number" value="1" name=""></td>
+				<td>N<span class="rate">{{cart.product.final_price}}</span></td>
+				<td>N<span class="product">0.00</span></td>
+			</tr>
+			{% endfor %}
+		</table>
+		<div class="total-price">
+			<table>
+				<tr>
+					<td>Subtotal</td>
+					<td>N <span class="subtotal">0.00</span></td>
+				</tr>
+				<tr>
+					<td>Tax</td>
+					<td>N <span class="tax">100.00</span></td>
+				</tr>
+					<tr>
+					<td>Total</td>
+					<td>N <span class="total">0.00</span> </td>
+				</tr>
+				<tr>
+					<td><button class="btn btn-primary calculate">Calculate</button></td>
+					<td><button class="btn btn-success">Make Payment</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script src="{% static 'js/cart.js' %}"></script>
+
+{% endblock %}

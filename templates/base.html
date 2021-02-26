@@ -1,0 +1,45 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+
+</head>
+<body>
+  
+  <div class="topnav" id="myTopnav">
+    ><a href="home" class="active">AfiAbuja</a>
+    <a href="news">News</a>
+    <a href="contact">Contact</a>
+    <div class="dropdown">
+    <button class="dropbtn">Enter Market<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-content">
+      <a href="">
+      Building Materials
+      <div>
+      <ul class="submenu dropdown-menu">
+        <li><a class="dropdown-item" href=""> First item</a></li>
+        <li><a class="dropdown-item" href=""> First item</a></li>
+        <li><a class="dropdown-item" href=""> First item</a></li>
+        <li><a class="dropdown-item" href=""> First item</a></li>
+      </ul>
+      </div>
+    </a>
+      <a href="">Food Items</a> 
+      <a href="">Furniture</a>
+    </div>
+  </div>
+  <a href="javascript:void(0);" style="font-size: 15px;" class="icon">&#9776;</a>
+  </div>
+
+
+  
+<button class="btn btn-danger">Danger</button>
+   
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

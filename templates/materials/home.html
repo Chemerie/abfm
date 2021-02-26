@@ -1,0 +1,220 @@
+
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+	{% include 'partials/_message.html' %}
+	
+	<div class="slide-body">
+	<div class="slider">
+		<div class="slides">
+			<input type="radio" name="radio-btn" id="radio1">
+			<input type="radio" name="radio-btn" id="radio2">
+			<input type="radio" name="radio-btn" id="radio3">
+			<input type="radio" name="radio-btn" id="radio4">
+
+			<div class="slide first" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url({{slide.slide1pics.url}}) center/cover no-repeat;">
+				<!-- <img src="{% static 'images/scissors.jpg' %}"  alt=""> -->
+				<div class="product-col-content" style="margin-top: 200px;">
+							<h2 style="color: red;" class="">{{slide.slide1heading}}</h2>
+							<h2 style="color: black;" class="md-title">{{slide.slide1subheading}}</h2>
+							<p style="color: green;" class="">{{slide.slide1writeup}}</p>
+							<a style="text-decoration: none;" href="{% url 'category_page1' %}" type="button" class="btn-dark">Shop now</a>
+						</div>
+			</div>
+			<div class="slide" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url({{slide.slide2pics.url}}) center/cover no-repeat;">
+				<!-- <img src="{% static 'images/scissors.jpg' %}"  alt=""> -->
+				<div class="product-col-content" style="margin-top: 200px;">
+							<h2 style="color: red;" class="">{{slide.slide2heading}}</h2>
+							<h2 style="color: black;" class="md-title">{{slide.slide2subheading}}</h2>
+							<p style="color: green;" class="">{{slide.slide2writeup}}</p>
+							<a style="text-decoration: none;" href="{% url 'category_page2' %}" type="button" class="btn-dark">Shop now</a>
+						</div>
+			</div>
+			<div class="slide" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url({{slide.slide3pics.url}}) center/cover no-repeat;">
+				<!-- <img src="{% static 'images/scissors.jpg' %}"  alt=""> -->
+				<div class="product-col-content" style="margin-top: 200px;">
+							<h2 style="color: red;" class="">{{slide.slide3heading}}</h2>
+							<h2 style="color: black;" class="md-title">{{slide.slide3subheading}}</h2>
+							<p style="color: green;" class="">{{slide.slide3writeup}}</p>
+							<a style="text-decoration: none;" href="{% url 'category_page3' %}" type="button" class="btn-dark">Shop now</a>
+						</div>
+			</div>
+			<div class="slide" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url({{slide.slide4pics.url}}) center/cover no-repeat;">
+				<!-- <img src="{% static 'images/scissors.jpg' %}"  alt=""> -->
+				<div class="product-col-content" style="margin-top: 200px;">
+							<h2 style="color: red;" class="">{{slide.slide4heading}}</h2>
+							<h2 style="color: black;" class="md-title">{{slide.slide4subheading}}</h2>
+							<p style="color: green;" class="">{{slide.slide4writeup}}</p>
+							<a style="text-decoration: none;" href="{% url 'category_page4' %}" type="button" class="btn-dark">Shop now</a>
+						</div>
+			</div>
+
+		</div>
+		<div class="navigation-auto">
+				<div class="auto-btn1"></div>
+				<div class="auto-btn2"></div>
+				<div class="auto-btn3"></div>
+				<div class="auto-btn4"></div>
+		</div>
+
+		<div class="navigation-manual">
+			<label for="radio1" class="manual-btn"></label>
+			<label for="radio2" class="manual-btn"></label>
+			<label for="radio3" class="manual-btn"></label>
+			<label for="radio4" class="manual-btn"></label>
+		</div>
+
+	</div>
+</div>
+	
+		 	
+		 	
+		 		
+		 		<div class="product-div">
+		 			<div class="container1">
+		 				<div class="row">
+		 					<div class="col-md-8">
+		 						<h1 class="lg-title">Our Products</h1>
+		 					</div>
+		 					<div class="col-md-4">
+		 						<div class="form-group">
+		 							<input class="form-control" placeholder="Search products" type="text" id="Search-btn" name="">
+		 						</div>
+		 					</div>
+		 				</div>
+		 				<hr>
+		 				<p class="text-light">
+		 					This product is the best shoe produced by Dubai companies joined together all in one.
+		 				</p>
+		 				<div class="app-table">
+		 				<div class="product-items">
+		 					{% for product in page_obj %}
+		 					<div class="product">
+		 						<i class="disp"></i>
+		 						<br>
+		 						<br>
+		 						<div class="product-content">
+		 							<div class="product-img">
+		 								<a href="{% url 'product_page' product.id %}"><img src="{{product.original_pics.url}}" width="200" height="200" alt="product image"></a>
+		 							</div>
+		 							<div class="product-btns">
+		 								<a href="" type="button" class="btn btn-secondary btn-cart">Add to cart<span><i class="fa fa-plus"></i> 
+		 								</span>
+		 								</a>
+		 								<a type="button" class="btn btn-secondary btn-buy">
+		 									Buy now
+		 									<span>
+		 										<i class="fa fa-shopping-cart"></i>
+		 									</span>
+
+		 								</a>
+
+		 							</div>
+		 						</div>
+		 						<div product-info>
+		 							<div class="product-info-top">
+		 								<h4 class="sm-title">lifestyle</h4>
+		 								<div class="rating">
+		 									<span><i class="fa fa-star"></i></span>
+		 									<span><i class="fa fa-star"></i></span>
+		 									<span><i class="fa fa-star"></i></span>
+		 									<span><i class="fa fa-star"></i></span>
+		 									<span><i class="fa fa-star"></i></span>
+		 								</div>
+		 							</div>
+		 							<a href="" class="product-name">{{product.name}}&nbsp;&nbsp;SE<span class="product-address">{{product.id}}</span>AB</a>
+		 							<div class="product-price" style="display: flex; padding-bottom: 0;">
+		 							<p >N {{product.initial_price}}</p>
+		 							<p >N {{product.final_price}}</p>
+		 							</div>
+		 						</div>
+		 						<!-- <div class="off-info">
+		 							<h2 class="sm-title">25% off</h2>
+		 						</div> -->
+		 					</div>
+		 					{% endfor %}
+
+		 				</div>
+		 				</div>
+		 				<div class="table-output" style="display: flex; flex-direction: row;">
+		 					
+		 				</div>
+		 				
+	<div class="pagination-container">	 			
+	<div class="">
+		showing page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+	</div>
+	<ul class="pagination align-right" style="float: right;">
+		{% if page_obj.has_previous %}
+			<li {% if page_obj.number == 1 %} class="page-item active {% endif %}">
+				<a class="page-link" href="?page=1">&laquo;</a>
+			</li>
+			<li {% if page_obj.number == 1 %} class="page-item active {% endif %}">
+				<a class="page-link" href="?page={{page_obj.previous_page_number}}">Previous</a>
+			</li>
+		{% endif %}
+
+		{% if page_obj.has_next %}
+			<li {% if page_obj.number == 1 %} class="page-item active {% endif %}">
+				<a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a>
+			</li>
+			<li {% if page_obj.number == 1 %} class="page-item active {% endif %}">
+				<a class="page-link" href="?page={{page_obj.paginator.num_pages}}">{{ page_obj.paginator.num_pages}} &raquo; </a>
+			</li>
+		{% endif %}
+
+	</ul>
+		</div>
+	</div>
+</div>
+
+		 	 
+		<div class="product-collection">
+			<div class="container1">
+				<div class="product-collection-wrapper">
+					<div style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url({{slide.slide1pics.url}}) center/cover no-repeat;" class="product-col-left flex">
+						<div class="product-col-content">
+							<h2 class="sm-title">{{slide.slide1heading}}</h2>
+							<h2 class="md-title">{{slide.slide1subheading}}</h2>
+							<p class="text-light">{{slide.slide1writeup}}</p>
+							<a style="text-decoration: none;" href="{% url 'category_page1' %}" type="button" class="btn-dark">Shop now</a>
+						</div>
+						
+					</div>
+					<div class="product-col-right">
+						<div style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url({{slide.slide2pics.url}}) center/cover no-repeat;" class="product-col-r-top flex">
+							<div  class="product-col-content">
+							<h2 class="sm-title">{{slide.slide2heading}}</h2>
+							<h2 class="md-title">{{slide.slide2subheading}}</h2>
+							<p class="text-light">{{slide.slide2writeup}}</p>
+							<a style="text-decoration: none;" href="{% url 'category_page2' %}" type="button" class="btn-dark">Shop now</a>
+							</div>
+						</div>
+						<div class="product-col-r-bottom">
+							<div style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url({{slide.slide3pics.url}}) center/cover no-repeat;" class="flex">
+								<div class="product-col-content">
+								<h2 class="sm-title">{{slide.slide3heading}}</h2>
+								<h2 class="md-title">{{slide.slide3subheading}}</h2>
+								<p class="text-light">{{slide.slide3writeup}}</p>
+								<a style="text-decoration: none;" href="{% url 'category_page3' %}" type="button" class="btn-dark">Shop now</a>
+								</div>
+							</div>
+							<div style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url({{slide.slide4pics.url}}) center/cover no-repeat;" class="flex">
+								<div class="product-col-content">
+								<h2 class="sm-title">{{slide.slide4heading}}</h2>
+								<h2 class="md-title">{{slide.slide4subheading}}</h2>
+								<p class="text-light">{{slide.slide4writeup}}</p>
+								<button type="button" class="btn-dark">Shop now</button>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<script src="{% static 'js/register.js' %}"></script>
+<script src="{% static 'js/cart.js' %}"></script>
+<script src="{% static 'js/search_products.js' %}"></script>
+
+{% endblock %}

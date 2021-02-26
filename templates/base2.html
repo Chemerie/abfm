@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main3.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
+	<script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	
+	<div class="menu-bar" id="myTopnav">
+	<ul>
+		<li class="active"><a href="{% url 'home' %}"><i class="fa fa-home"></i> ABFM</a></li>
+		<li><a href=""> About Us</a>
+			<div class="sub-menu-1">
+				<ul>
+					<li><a href="">Mission</a> </li>
+					<li><a href="">Vission</a> </li>
+					<li><a href="">Team</a> </li>
+				</ul>
+			</div>
+		</li>
+		<li><a href="">Products</a>
+
+			<div class="sub-menu-1">
+				<ul>
+					<li class="hover-me"><a href="{% url 'category_page1' %}">Material</a><!-- <i class="fa fa-angle-right"></i>  -->
+						<!-- <div class="sub-menu-2">
+							<ul>
+								<li><a href="">Fabric</a> </li>
+								<li><a href="">Leather</a> </li>
+								<li><a href="">Lether-Fabric</a> </li>
+							</ul>
+						</div> -->
+					</li>
+					<li class="hover-me" ><a href="{% url 'category_page2' %}">Foam</a><!-- <i class="fa fa-angle-right"></i>
+						<div class="sub-menu-2">
+							<ul>
+								<li><a href="">Naked</a> </li>
+								<li><a href="">Covered</a> </li>
+								<li><a href="">Pieces</a> </li>
+							</ul>
+						</div> -->
+					 </li>
+					<li class="hover-me"><a href="{% url 'category_page3' %}">Tool</a> <!-- <i class="fa fa-angle-right"></i>
+						<div class="sub-menu-2">
+							<ul>
+								<li><a href="">Wood</a> </li>
+								<li><a href="">Chairleg</a> </li>
+								<li><a href="">Nail</a> </li>
+							</ul>
+						</div> -->
+						
+					</li>
+					<li class="hover-me"><a href="{% url 'category_page4' %}">Wood</a></li>
+				</ul>
+			</div>
+		</li>
+		<li><a href="{% url 'samples' %}"> Samples</a></li>
+		<li><a href=""> Contact</a></li>
+		<li><a href=""> Settings</a>
+			<div class="sub-menu-1">
+				<ul>
+					<li><a href="{% url 'add_product' %}">Add Product</a> </li>
+					<li><a href="{% url 'edit_slide' %}">Slide</a> </li>
+				</ul>
+			</div>
+		</li>
+		<li><a href="{% url 'register' %}"> Register</a></li>
+		<li><a href="{% url 'login' %}"> Login</a></li>
+	</ul>
+	<a style="text-decoration: none; color: white; font-size: 50px;" href="javascript:void(0);" class="icon">&#9776;</a>
+		
+	 {% if user.is_authenticated %}
+       <ul style="float: right;">
+       	{% if carts %}
+       	<li><a href="{% url 'cart' %}">Cart<i class="fa fa-shopping-cart">&nbsp;<sup style="color: orange;">{{carts.count}}</sup></i></a></li>
+       	{% endif %}
+       	<li><a href="">{{user.username}}</a>
+   			<div class="sub-menu-1">
+				<ul>
+					<li>
+						<form action="{% url 'logout' %}" method="POST">
+        					{% csrf_token %}
+        					<input  type="submit" name="" value="Sign out">
+     					</form> 
+     				</li>
+					
+				</ul>
+			</div>
+           </li>
+   
+       </ul>
+       {% endif %}
+
+	
+	</div>
+
+	<br>
+	{% block content %}
+	
+	{% endblock%}
+<script src="{% static 'js/main4.js' %}"></script>
+</body>
+</html>
